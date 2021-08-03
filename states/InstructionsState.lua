@@ -2,9 +2,9 @@ InstructionsState = Class{__includes = BaseState}
 
 function InstructionsState:init()
    instructions1 = [[
-  Hello, I'm Anthony Hopkins. You may recognise my voice from the Need For Speed audio books I was forced to narrate by an alabaster titan.
+  Hello, I'm Anthony Hopkins. You may recognise my voice from the Need For Speed audio books I was forced to narrate by an Alabaster Titan.
 
-  Alice, I need your help. Narrating these audio books has been seriously detrimental to my mental health. I need you to enter The Cavern Of Lies and discover a means to deactivate the titans.
+  Alice, I need your help. Narrating these audio books has been seriously detrimental to my mental health. I need you to enter The Cavern Of Lies and discover a means to deactivate the Titans.
    ]]   
    instructions2 = [[
   In order to help you I have stolen the cloning machine from the 2021 E3 conference, whatever that is, and have made copies of yourself.  
