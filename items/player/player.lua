@@ -110,23 +110,12 @@ function Player:update(dt)
     end
 end
 
-function Player:drawSprite(frame1, frame2, axis)
-    if axis % 2 == 0 then
-        drawItem(frame1, (self.x - 1) * 8, (self.y - 1) * 8)
-    else
-        drawItem(frame2, (self.x - 1) * 8, (self.y - 1) * 8)
-    end
-end
-
 function Player:draw(frame1, frame2, axis)
-    -- love.graphics.draw(frame1, PLAYAREA_OFFSET_LEFT + self.x, PLAYAREA_OFFSET_TOP + self.y)
     love.graphics.setColor(1,1,1)
     if axis % 2 == 0 then
         playarea_draw_sprite(frame1, (self.x - 1) * 8, (self.y - 1) * 8)
-        -- love.graphics.draw(frame1, self.x, self.y)
     else
         playarea_draw_sprite(frame2, (self.x - 1) * 8, (self.y - 1) * 8)
-        -- love.graphics.draw(frame2, self.x, self.y)
     end
 end
 
@@ -152,11 +141,12 @@ end
 
 function Player:renderLives()
     local offset = 12
+    love.graphics.setColor(1,1,1)
     for i=0,lives - 1 do
         if offset % 2 == 0 then
-            drawItem(playerSpriteRight2, TILE_SIZE * offset, -11)
+            playarea_draw_sprite(self.right1, TILE_SIZE * offset, -11)
         else
-            drawItem(playerSpriteRight1, TILE_SIZE * offset, -11)
+            playarea_draw_sprite(self.right2, TILE_SIZE * offset, -11)
         end
         offset = offset + 1
     end

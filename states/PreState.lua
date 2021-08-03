@@ -4,6 +4,8 @@ local utf8 = require("utf8")
 require 'items.player.playerSprite'
 
 function PreState:init()
+    PLAYER_RIGHT = love.graphics.newImage('sprites/alice-001.png')
+    PLAYER_LEFT = love.graphics.newImage('sprites/alice-003.png')
     if scoreInput then
         playerName = ""
         position = #highScores + 1
@@ -73,8 +75,10 @@ function PreState:render()
     playarea_rectangle("fill", 75, 20, 140, 30)
     playarea_rectangle("fill", 60, 45, 170, 85)
     setColour("Black")
-    drawItem(playerSpriteRight2, 52, 20)
-    drawItem(playerSpriteLeft2, 223, 20)
+    love.graphics.setColor(1,1,1)
+    playarea_draw_sprite(PLAYER_RIGHT, 52, 20)
+    playarea_draw_sprite(PLAYER_LEFT, 223, 20)
+    love.graphics.setColor(0,0,0)
     screenarea_printf('HI-SCORE-TABLE', 0, 40, VIRTUAL_WIDTH, 'center')
     screenarea_printf('I-Instructions  O-Options  P-Play  ?', 0, 180, VIRTUAL_WIDTH, 'center')
     for i,score in ipairs(highScores) do
