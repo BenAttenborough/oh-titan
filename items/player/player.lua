@@ -10,6 +10,14 @@ function Player:init(x, y, direction)
     self.hasKey = false
     self.hasScroll = false
     self.hasRoyalTomb = false
+    self.right1 = love.graphics.newImage('sprites/alice-001.png')
+    self.right2 = love.graphics.newImage('sprites/alice-002.png')
+    self.left1 = love.graphics.newImage('sprites/alice-003.png')
+    self.left2 = love.graphics.newImage('sprites/alice-004.png')
+    self.down1 = love.graphics.newImage('sprites/alice-005.png')
+    self.down2 = love.graphics.newImage('sprites/alice-006.png')
+    self.up1 = love.graphics.newImage('sprites/alice-007.png')
+    self.up2 = love.graphics.newImage('sprites/alice-008.png')
 end
 
 function Player:afterMovement(direction)
@@ -110,19 +118,36 @@ function Player:drawSprite(frame1, frame2, axis)
     end
 end
 
+function Player:draw(frame1, frame2, axis)
+    -- love.graphics.draw(frame1, PLAYAREA_OFFSET_LEFT + self.x, PLAYAREA_OFFSET_TOP + self.y)
+    love.graphics.setColor(1,1,1)
+    if axis % 2 == 0 then
+        playarea_draw_sprite(frame1, (self.x - 1) * 8, (self.y - 1) * 8)
+        -- love.graphics.draw(frame1, self.x, self.y)
+    else
+        playarea_draw_sprite(frame2, (self.x - 1) * 8, (self.y - 1) * 8)
+        -- love.graphics.draw(frame2, self.x, self.y)
+    end
+end
+
 function Player:render()
     if self.direction == "right" then
-        self:drawSprite(playerSpriteRight1, playerSpriteRight2, self.x)
+        love.graphics.setColor(1,1,1)
+        self:draw(self.right1, self.right2, self.x)
     end
     if self.direction == "left" then
-        self:drawSprite(playerSpriteLeft1, playerSpriteLeft2, self.x)
-    end
-    if self.direction == "up" then
-        self:drawSprite(playerSpriteUp1, playerSpriteUp2, self.y)
+        love.graphics.setColor(1,1,1)
+        self:draw(self.left1, self.left2, self.x)
     end
     if self.direction == "down" then
-        self:drawSprite(playerSpriteDown1, playerSpriteDown2, self.y)
+        love.graphics.setColor(1,1,1)
+        self:draw(self.down1, self.down2, self.y)
     end
+    if self.direction == "up" then
+        love.graphics.setColor(1,1,1)
+        self:draw(self.up1, self.up2, self.y)
+    end
+    
 end
 
 function Player:renderLives()

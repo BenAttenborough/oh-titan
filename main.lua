@@ -49,7 +49,7 @@ end
 
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
-    love.window.setTitle('Oh Mummy!')
+    love.window.setTitle('Alice and the Alabaster Titan')
     movementInterval = 0.10
     score = 0
     lives = 0

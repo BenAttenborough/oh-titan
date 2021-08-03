@@ -34,6 +34,10 @@ function playarea_points( x, y )
     love.graphics.points( PLAYAREA_OFFSET_LEFT + x, PLAYAREA_OFFSET_TOP + y )
 end
 
+function playarea_draw_sprite(sprite, x, y)
+    love.graphics.draw(sprite, PLAYAREA_OFFSET_LEFT + x, PLAYAREA_OFFSET_LEFT + y + 2)
+end
+
 function createTombs()
     local tombs = {}
     for i=0,3 do
