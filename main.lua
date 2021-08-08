@@ -12,6 +12,7 @@ require 'states.PreState'
 require 'states.InstructionsState'
 require 'states.OptionsState'
 require 'states.StoryState'
+require 'states.WinState'
 
 require 'configs.global'
 
@@ -83,6 +84,7 @@ function love.load()
         ['instructions'] = function() return InstructionsState() end,
         ['options'] = function() return OptionsState() end,
         ['story'] = function() return StoryState() end,
+        ['win'] = function() return WinState() end,
     }
     gStateMachine:change('title', {})
 end

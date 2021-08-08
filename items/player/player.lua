@@ -66,22 +66,26 @@ function Player:movement(direction, dt)
             if self:exitRequirementIsMet() then
                 numberOfMummies = math.min(numberOfMummies + 1, 6)
                 level = level + 1
-                if level % 5 == 0 then
-                    if lives < 5 then 
-                        lives = lives + 1 
-                    end
-                    if mummyIntelligence < 95 then
-                        mummyIntelligence = mummyIntelligence + 5
-                    end
-                    if movementInterval > 0.02 then
-                        movementInterval = movementInterval - 0.02
-                    elseif movementInterval > 0.002 then
-                        movementInterval = movementInterval - 0.002
-                    end
-                    numberOfMummies = 1
-                    gStateMachine:change('story')
+                if level == 2 then
+                    gStateMachine:change('win')
                 else
-                    gStateMachine:change('play')
+                    if level % 5 == 0 then
+                        if lives < 5 then 
+                            lives = lives + 1 
+                        end
+                        if mummyIntelligence < 95 then
+                            mummyIntelligence = mummyIntelligence + 5
+                        end
+                        if movementInterval > 0.02 then
+                            movementInterval = movementInterval - 0.02
+                        elseif movementInterval > 0.002 then
+                            movementInterval = movementInterval - 0.002
+                        end
+                        numberOfMummies = 1
+                        gStateMachine:change('story')
+                    else
+                        gStateMachine:change('play')
+                    end
                 end
             end
         end
