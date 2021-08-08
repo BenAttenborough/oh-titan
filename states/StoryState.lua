@@ -5,11 +5,11 @@ function StoryState:init()
   !!  STOP   PRESS  !!
     ]]
     self.bodyText = [[
-  British Museum today announced successful excavation of ancient Egyptian pyramid.
+  Well done Alice, you haven't yet discovered the artifact needed to control the Titans, but you've collected enough treasure for me to clone your body again.
     ]]
 
     self.endText = [[
-  Leader of team given extra man for next dig.
+  You have been given an extra Alice for the next dig.
     ]]
    self.continueText = 'Press "C" or Fire Button to Continue'
 end
