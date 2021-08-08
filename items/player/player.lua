@@ -66,7 +66,7 @@ function Player:movement(direction, dt)
             if self:exitRequirementIsMet() then
                 numberOfMummies = math.min(numberOfMummies + 1, 6)
                 level = level + 1
-                if level == 2 then
+                if level == 15 then
                     gStateMachine:change('win')
                 else
                     if level % 5 == 0 then
