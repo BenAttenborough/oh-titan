@@ -22,6 +22,7 @@ require 'helpers.render'
 
 require 'items.key'
 require 'items.sarcophagus'
+require 'items.wireless'
 require 'items.coffin'
 require 'items.scroll'
 require 'map.map'

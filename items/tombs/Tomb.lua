@@ -106,7 +106,12 @@ function Tomb:renderOpenTomb()
     end
     if self.type == 3 then drawItem(itemKey, (self.x * 8), (self.y * 8)) end
     if self.type == 4 then drawItem(itemScroll, (self.x * 8), (self.y * 8)) end
-    if self.type == 5 then drawItem(itemSarcophagus, (self.x * 8), (self.y * 8)) end
+    if self.type == 5 then
+        if level == 15 then 
+            drawItem(itemWireless, (self.x * 8), (self.y * 8)) 
+        else
+            drawItem(itemSarcophagus, (self.x * 8), (self.y * 8)) 
+        end
     if self.type == 6 then self:renderMummyTomb() end
 end
 
